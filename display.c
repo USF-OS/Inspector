@@ -89,7 +89,7 @@ void display_refresh(char *procfs_loc)
     }
 
     char vers[32];
-    pfs_kernel_version(procfs_loc, vers, 32);
+    retval = pfs_kernel_version(procfs_loc, vers, 32);
     if (retval == -1) {
         strcpy(vers, "(UNKNOWN)");
     }
@@ -121,13 +121,13 @@ void display_refresh(char *procfs_loc)
     char cpu_bar[30] = { 0 };
     static struct cpu_stats prev_cpu;
     struct cpu_stats curr_cpu;
-    double cpu_perc = pfs_cpu_usage(&prev_cpu, &curr_cpu);
+    double cpu_perc = pfs_cpu_usage(procfs_loc, &prev_cpu, &curr_cpu);
     prev_cpu = curr_cpu;
     draw_percbar(cpu_bar, cpu_perc);
     DISP_PRINT(5, 0, "CPU Usage:    %s", cpu_bar);
 
     char mem_bar[30] = { 0 };
-    struct mem_stats mstats = pfs_mem_usage();
+    struct mem_stats mstats = pfs_mem_usage(procfs_loc);
     draw_percbar(mem_bar, mstats.used / mstats.total);
     DISP_PRINT(6, 0, "Memory Usage: %s (%.1f / %.1f GB)",
             mem_bar, mstats.used, mstats.total);

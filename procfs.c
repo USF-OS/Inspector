@@ -37,12 +37,12 @@ struct load_avg pfs_load_avg(char *proc_dir)
    return lavg;
 }
 
-double pfs_cpu_usage(struct cpu_stats *prev, struct cpu_stats *curr)
+double pfs_cpu_usage(char *proc_dir, struct cpu_stats *prev, struct cpu_stats *curr)
 {
     return 0.0;
 }
 
-struct mem_stats pfs_mem_usage(void)
+struct mem_stats pfs_mem_usage(char *proc_dir)
 {
     struct mem_stats mstats = { 0 };
     return mstats;

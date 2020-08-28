@@ -25,7 +25,7 @@ docs: Doxyfile
 	doxygen
 
 clean:
-	rm -f $(bin) $(obj)
+	rm -f $(bin) $(obj) libinspector.so
 	rm -rf docs
 
 # Individual dependencies --
@@ -36,7 +36,7 @@ util.o: util.c util.h
 
 
 # Tests --
-test: inspector ./tests/run_tests
+test: inspector libinspector.so ./tests/run_tests
 	./tests/run_tests $(run)
 
 testupdate: testclean test
