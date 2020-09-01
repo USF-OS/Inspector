@@ -44,7 +44,7 @@ testupdate: testclean test
 
 ./tests/run_tests:
 	rm -rf tests
-	git clone https://github.com/USF-OS/P1-Tests.git tests
+	git clone https://github.com/USF-OS/Inspector-Tests.git tests
 
 testclean:
 	rm -rf tests
