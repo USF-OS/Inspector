@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "util.h"
+#include "logger.h"
 
 void draw_percbar(char *buf, double frac) {
 

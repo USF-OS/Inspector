@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "debug.h"
+#include "logger.h"
 #include "display.h"
 
 /**

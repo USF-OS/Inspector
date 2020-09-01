@@ -10,7 +10,7 @@
 #include <sys/types.h>
 #include <pwd.h>
 
-#include "debug.h"
+#include "logger.h"
 #include "display.h"
 #include "procfs.h"
 #include "util.h"
